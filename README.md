@@ -4,7 +4,7 @@
 
 ## What are there?
 
-* All available countries. Not hardcoded - all gets generic. 
+* All available countries. Not hardcoded - all get's generic. 
 * SVG for each country from `ttps://hatscripts.github.io/circle-flags`. 
 * Country codes also not hardcoded, all gets from NuGet via ISO Region Name. 
 * Built-in Search by Country Name.
