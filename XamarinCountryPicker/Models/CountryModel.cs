@@ -12,7 +12,6 @@ namespace XamarinCountryPicker.Models
         private string _flagUrl;
         private string _countryName;
         private string _countryCode;
-        private string _regionName;
 
         #endregion Fields
 
@@ -34,12 +33,6 @@ namespace XamarinCountryPicker.Models
         {
             get => _countryCode;
             set => SetProperty(ref _countryCode, value);
-        }
-
-        public string RegionName
-        {
-            get => _regionName;
-            set => SetProperty(ref _regionName, value);
         }
 
         #endregion Properties

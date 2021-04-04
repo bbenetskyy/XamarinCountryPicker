@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using PhoneNumbers;
+using XamarinCountryPicker.Models;
 
 namespace XamarinCountryPicker.Utils
 {
@@ -21,6 +23,29 @@ namespace XamarinCountryPicker.Utils
                     countries.Add(info);
             }
             return countries.OrderBy(p => p.EnglishName).ToList();
+        }
+
+        /// <summary>
+        /// Get Country Model by Country Name
+        /// </summary>
+        /// <param name="countryName">English Name of Country</param>
+        /// <returns>Complete Country Model with Region, Flag, Name and Code</returns>
+        public static CountryModel GetCountryModelByName(string countryName)
+        {
+            var phoneNumberUtil = PhoneNumberUtil.GetInstance();
+            var isoCountries = GetCountriesByIso3166();
+            var regionInfo = isoCountries.FirstOrDefault(c => c.EnglishName == countryName);
+            return regionInfo != null
+                ? new CountryModel
+                {
+                    CountryCode = phoneNumberUtil.GetCountryCodeForRegion(regionInfo.TwoLetterISORegionName).ToString(),
+                    CountryName = regionInfo.EnglishName,
+                    FlagUrl = $"https://hatscripts.github.io/circle-flags/flags/{regionInfo.TwoLetterISORegionName.ToLower()}.svg",
+                }
+                : new CountryModel
+                {
+                    CountryName = countryName
+                };
         }
     }
 }

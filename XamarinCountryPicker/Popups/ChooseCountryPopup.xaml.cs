@@ -45,7 +45,7 @@ namespace XamarinCountryPicker.Popups
 
         #region Properties
 
-        public ICommand SelectCountryCommand { get; set; }
+        public ICommand CountrySelectedCommand { get; set; }
 
         public ObservableCollection<CountryModel> VisibleCountries { get; }
 
@@ -70,7 +70,7 @@ namespace XamarinCountryPicker.Popups
 
         private void ConfirmBtn_Clicked(object sender, EventArgs e)
         {
-            SelectCountryCommand?.Execute(SelectedCountry);
+            CountrySelectedCommand?.Execute(SelectedCountry);
             Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAsync();
         }
 
@@ -85,7 +85,6 @@ namespace XamarinCountryPicker.Popups
                 CountryCode = phoneNumberUtil.GetCountryCodeForRegion(c.TwoLetterISORegionName).ToString(),
                 CountryName = c.EnglishName,
                 FlagUrl = $"https://hatscripts.github.io/circle-flags/flags/{c.TwoLetterISORegionName.ToLower()}.svg",
-                RegionName = c.TwoLetterISORegionName
             }));
         }
 

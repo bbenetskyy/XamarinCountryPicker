@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinCountryPicker.Views.AboutPage"
-             xmlns:vm="clr-namespace:XamarinCountryPicker.ViewModels"
+             xmlns:vm="clr-namespace:XamarinCountryPicker.ViewModels" xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              Title="{Binding Title}">
     
     <ContentPage.BindingContext>
@@ -30,6 +30,41 @@
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
                 <Label Text="This is Country Picker. You can just copy and paste and use in your project" FontSize="16"/>
+                <Frame
+                    CornerRadius="10"
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="0,40,0,0"
+                    Padding="0"
+                    BorderColor="Gray"
+                    IsClippedToBounds="True"
+                    BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ShowPopupCommand}"/>
+                        </StackLayout.GestureRecognizers>
+                        <forms:SvgCachedImage
+                            HeightRequest="26"
+                            Source="{Binding SelectedCountry.FlagUrl}"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="26" 
+                            Margin="20,10,0,10"/>
+                        <Label Text="{Binding SelectedCountry.CountryName}"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Start"
+                               Margin="10,0"
+                               HorizontalOptions="Start"
+                               VerticalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding SelectedCountry.CountryCode, StringFormat='(+{0})'}"
+                               VerticalTextAlignment="Center"
+                               Margin="20,0"
+                               HorizontalTextAlignment="End"
+                               HorizontalOptions="EndAndExpand"
+                               VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </Grid>
