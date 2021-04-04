@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<StackLayout
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    x:Class="XamarinCountryPicker.Controls.CountryControl">
+    <forms:SvgCachedImage x:Name="FlagImage"
+                          HeightRequest="26" 
+                          WidthRequest="26" />
+    <Label x:Name="CountryNameLabel"
+           Margin="12,0"
+           FontSize="18"
+           VerticalOptions="Center"
+           HorizontalOptions="FillAndExpand"/>
+    <Label x:Name="CountryCodeLabel"
+           FontSize="18"
+           VerticalOptions="Center"
+           HorizontalTextAlignment="End"/>
+</StackLayout>

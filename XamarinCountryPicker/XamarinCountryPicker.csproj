@@ -13,4 +13,9 @@
     <PackageReference Include="libphonenumber-csharp" Version="8.12.19" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
+    <Folder Include="Popups\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
 </Project>
