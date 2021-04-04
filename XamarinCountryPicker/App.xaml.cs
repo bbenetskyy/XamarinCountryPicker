@@ -1,8 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using XamarinCountryPicker.Services;
-using XamarinCountryPicker.Views;
+﻿using Xamarin.Forms;
 
 namespace XamarinCountryPicker
 {
@@ -12,21 +8,7 @@ namespace XamarinCountryPicker
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
-        }
-
-        protected override void OnStart()
-        {
-        }
-
-        protected override void OnSleep()
-        {
-        }
-
-        protected override void OnResume()
-        {
         }
     }
 }
