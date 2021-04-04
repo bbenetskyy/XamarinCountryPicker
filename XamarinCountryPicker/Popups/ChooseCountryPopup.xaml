@@ -6,6 +6,14 @@
     xmlns:controls="clr-namespace:XamarinCountryPicker.Controls"
     xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     x:Class="XamarinCountryPicker.Popups.ChooseCountryPopup">
+   <popups:PopupPage.Animation>
+        <popups:MoveAnimation
+            PositionIn="Bottom"
+            PositionOut="Bottom"
+            DurationIn="400"
+            DurationOut="300"
+            HasBackgroundAnimation="True"/>
+   </popups:PopupPage.Animation>
    <pancakeView:PancakeView
         CornerRadius="10,10,0,0"
         VerticalOptions="Center"
@@ -19,6 +27,7 @@
                          HorizontalOptions="FillAndExpand">
                 <Button Text="Cancel"
                         TextColor="Indigo"
+                        BackgroundColor="Transparent"
                         Clicked="CloseBtn_Clicked"
                         HorizontalOptions="Start" />
                 <Label Text="Select your country"
@@ -29,6 +38,7 @@
                        HeightRequest="60"
                        HorizontalOptions="CenterAndExpand" />
                 <Button Text="Done" 
+                        BackgroundColor="Transparent"
                         TextColor="Indigo"
                         Clicked="ConfirmBtn_Clicked"
                         HorizontalOptions="End" />
@@ -57,14 +67,15 @@
                    FontSize="14"/>
             <ListView x:Name="CommonCountriesList"
                       CachingStrategy="RetainElement"
-                      HasUnevenRows="False"
+                      HasUnevenRows="True"
+                      SelectionMode="Single"
                       SeparatorVisibility="None"
                       ItemSelected="CommonCountriesList_OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                            <StackLayout>
-                               <controls:CountryControl Country="{Binding .}"  Margin="0,16"/>
+                               <controls:CountryControl Country="{Binding .}"  Margin="0,10"/>
                                <BoxView Style="{StaticResource SeparatorBoxView}"/>
                            </StackLayout>
                         </ViewCell>
