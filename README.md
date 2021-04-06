@@ -32,4 +32,4 @@ You need to copy that files into your project. Also, we have two Custom Renderer
 ![image](https://user-images.githubusercontent.com/8330262/113513806-a8257b00-956b-11eb-98c5-0b85e400509e.png)
 
 
-## More Details at blog post: todo_add_link_here
+## More Details at blog post: [Xamarin.Forms Country Picker with Rg.Plugins.Popup](https://bit.ly/31NS4YV)
